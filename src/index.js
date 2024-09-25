@@ -1,11 +1,21 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
+const path = require('path') // Este modulo une los directorios sin importar la plataforma de ejecucion
 
 // Settings
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 3000) // Seteando los posibles puertos
+
 // Middlewares
+app.use(morgan('dev')) 
+app.use(express.json())
+
 // Routes
+app.use('/api/tasks', require('./routes/task.routes'))
+
 // Static files
+app.use(express.static(path.join(__dirname, '/public')))
+
 // Starting the server
 
 app.listen(app.get('port'), () => {
