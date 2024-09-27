@@ -1,7 +1,8 @@
 const express = require('express')
 const morgan = require('morgan')
-const app = express()
 const path = require('path') // Este modulo une los directorios sin importar la plataforma de ejecucion
+const { mongoose } = require('./database')
+const app = express()
 
 // Settings
 app.set('port', process.env.PORT || 3000) // Seteando los posibles puertos
