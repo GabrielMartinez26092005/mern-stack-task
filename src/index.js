@@ -9,7 +9,7 @@ app.set('port', process.env.PORT || 3000) // Seteando los posibles puertos
 
 // Middlewares
 app.use(morgan('dev')) 
-app.use(express.json())
+app.use(express.json()) // Para que el servidor pueda entender el formato .json
 
 // Routes
 app.use('/api/tasks', require('./routes/task.routes'))
