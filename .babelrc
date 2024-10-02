@@ -1,0 +1,4 @@
+// este archivo es para configurar que sintaxis debe traducir babel
+{
+    "presets": [ "@babel/preset-env", "@babel/preset-react"]
+}
