@@ -13,8 +13,17 @@ class App extends Component{
     }
 
     addTask(e){
-        console.log(this.state)
-        e.preventDefault()
+        fetch('/api/tasks', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' // Corrige el typo aquí
+            }
+        })
+        .then(res => console.log(res))
+        .catch(err => console.error(err))
+        e.preventDefault(); 
     }
 
     handleChange(e){
